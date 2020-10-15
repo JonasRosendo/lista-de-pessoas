@@ -1,7 +1,7 @@
 package com.jonasrosendo.desafiousemobile.di
 
-import com.jonasrosendo.desafiousemobile.data.api.UseMobileApi
-import com.jonasrosendo.desafiousemobile.data.api.UseMobileService
+import com.jonasrosendo.desafiousemobile.data.api.Api
+import com.jonasrosendo.desafiousemobile.data.api.ApiService
 import com.jonasrosendo.desafiousemobile.data.datasource.UserDataSource
 import com.jonasrosendo.desafiousemobile.data.repository.UserRepository
 import com.jonasrosendo.desafiousemobile.usecases.InteractorGetUsers
@@ -13,10 +13,10 @@ import dagger.Provides
 class UseMobileModule {
 
     @Provides
-    fun provideApi(): UseMobileApi = UseMobileService
+    fun provideApi(): Api = ApiService
 
     @Provides
-    fun provideUserDataSource(api: UseMobileApi) = UserDataSource(api)
+    fun provideUserDataSource(api: Api) = UserDataSource(api)
 
     @Provides
     fun provideUserRepository(dataSource: UserDataSource) = UserRepository(dataSource)

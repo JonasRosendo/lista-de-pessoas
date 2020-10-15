@@ -1,10 +1,10 @@
 package com.jonasrosendo.desafiousemobile.data.mocked
 
-import com.jonasrosendo.desafiousemobile.data.api.UseMobileApi
+import com.jonasrosendo.desafiousemobile.data.api.Api
 import com.jonasrosendo.desafiousemobile.data.model.User
 import com.jonasrosendo.desafiousemobile.data.model.UserResponse
 
-object MockApiService : UseMobileApi {
+object MockApiService : Api {
 
     override suspend fun getUsers(): UserResponse {
         return UserResponse(generateUsers())

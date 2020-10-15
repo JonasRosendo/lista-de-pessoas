@@ -5,7 +5,7 @@ import com.jonasrosendo.desafiousemobile.data.model.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface UseMobileApi {
+interface Api {
 
     @GET("user")
     suspend fun getUsers(): UserResponse

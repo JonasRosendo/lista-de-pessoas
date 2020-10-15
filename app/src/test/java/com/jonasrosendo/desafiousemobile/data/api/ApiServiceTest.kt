@@ -2,20 +2,17 @@ package com.jonasrosendo.desafiousemobile.data.api
 
 import com.jonasrosendo.desafiousemobile.data.mocked.MockApiService
 import com.jonasrosendo.desafiousemobile.data.model.User
-import com.jonasrosendo.desafiousemobile.data.model.UserResponse
-import com.jonasrosendo.desafiousemobile.di.DaggerUseMobileComponent
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import javax.inject.Inject
 
 @RunWith(JUnit4::class)
-class UseMobileServiceTest {
+class ApiServiceTest {
 
-    private lateinit var api: UseMobileApi
+    private lateinit var api: Api
     private val userAmanda = User(
         1,
         "Amanda Campos",

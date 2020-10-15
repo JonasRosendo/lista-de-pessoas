@@ -6,13 +6,13 @@ import com.jonasrosendo.desafiousemobile.data.model.UserResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object UseMobileService : UseMobileApi {
+object ApiService : Api {
 
     private val api = Retrofit.Builder()
         .baseUrl(BuildConfig.API_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(UseMobileApi::class.java)
+        .create(Api::class.java)
 
     override suspend fun getUsers(): UserResponse {
         return api.getUsers()
