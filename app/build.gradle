@@ -21,8 +21,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            versionNameSuffix '-debug'
+            buildConfigField "String", "API_URL", "\"https:processo-seletivo-mobile-api.usemobile.com.br/api/\""
+        }
         release {
             minifyEnabled false
+            buildConfigField "String", "API_URL", "\"https:processo-seletivo-mobile-api.usemobile.com.br/api/\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
