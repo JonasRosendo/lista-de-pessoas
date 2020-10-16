@@ -1,7 +1,11 @@
 package com.jonasrosendo.desafiousemobile.data.api
 
-import com.jonasrosendo.desafiousemobile.data.mocked.MockApiService
 import com.jonasrosendo.desafiousemobile.data.model.User
+import com.jonasrosendo.desafiousemobile.data.model.UserResponse
+import com.jonasrosendo.desafiousemobile.data.mocked.generateUsers
+import com.jonasrosendo.desafiousemobile.data.mocked.searchUserById
+import io.mockk.every
+import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
 import org.junit.Before
@@ -12,7 +16,8 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 class ApiServiceTest {
 
-    private lateinit var api: Api
+    private var api = mockk<ApiService>()
+
     private val userAmanda = User(
         1,
         "Amanda Campos",
@@ -30,7 +35,17 @@ class ApiServiceTest {
 
     @Before
     fun setup() {
-        api = MockApiService
+        every {
+            runBlocking {
+                api.getUsers()
+            }
+        } returns UserResponse(generateUsers())
+
+        every {
+            runBlocking {
+                api.getUserById(2)
+            }
+        } returns searchUserById(2)
     }
 
     @Test
