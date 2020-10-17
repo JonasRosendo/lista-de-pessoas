@@ -1,7 +1,8 @@
-package com.jonasrosendo.desafiousemobile
+package com.jonasrosendo.desafiousemobile.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jonasrosendo.desafiousemobile.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

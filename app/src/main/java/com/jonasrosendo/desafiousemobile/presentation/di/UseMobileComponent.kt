@@ -1,4 +1,4 @@
-package com.jonasrosendo.desafiousemobile.di
+package com.jonasrosendo.desafiousemobile.presentation.di
 
 import com.jonasrosendo.desafiousemobile.data.api.ApiService
 import dagger.Component
