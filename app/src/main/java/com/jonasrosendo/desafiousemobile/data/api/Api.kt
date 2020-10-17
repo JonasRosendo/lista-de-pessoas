@@ -1,7 +1,7 @@
 package com.jonasrosendo.desafiousemobile.data.api
 
-import com.jonasrosendo.desafiousemobile.data.model.User
-import com.jonasrosendo.desafiousemobile.data.model.UserResponse
+import com.jonasrosendo.desafiousemobile.domain.entities.User
+import com.jonasrosendo.desafiousemobile.domain.entities.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

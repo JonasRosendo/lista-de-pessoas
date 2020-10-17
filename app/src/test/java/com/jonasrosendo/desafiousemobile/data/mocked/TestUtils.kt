@@ -1,6 +1,6 @@
 package com.jonasrosendo.desafiousemobile.data.mocked
 
-import com.jonasrosendo.desafiousemobile.data.model.User
+import com.jonasrosendo.desafiousemobile.domain.entities.User
 
 fun generateUsers(): List<User> {
     return arrayListOf(

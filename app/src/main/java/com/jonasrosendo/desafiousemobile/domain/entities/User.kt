@@ -1,4 +1,4 @@
-package com.jonasrosendo.desafiousemobile.data.model
+package com.jonasrosendo.desafiousemobile.domain.entities
 
 
 import com.google.gson.annotations.SerializedName
