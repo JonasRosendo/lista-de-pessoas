@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.jonasrosendo.desafiousemobile.R
+import com.jonasrosendo.desafiousemobile.domain.entities.User
+import com.jonasrosendo.desafiousemobile.presentation.activity.MainActivity
 import com.jonasrosendo.desafiousemobile.presentation.commons.load
 import com.jonasrosendo.desafiousemobile.presentation.viewmodels.ProfileViewModel
-import com.jonasrosendo.desafiousemobile.presentation.viewmodels.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user_profile.*
-import kotlinx.android.synthetic.main.item_users_adapter.*
 
 class UserProfileFragment : Fragment() {
 
@@ -36,10 +37,16 @@ class UserProfileFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.user.observe(viewLifecycleOwner, {
-            iv_user_profile_photo.load(it.photo)
-            tv_profile_name.text = it.name
-            tv_profile_email.text = it.email
-            tv_profile_about.text = it.about
+            setComponentsValues(it)
+            (requireActivity() as MainActivity).supportActionBar?.title = it.name
         })
+
+    }
+
+    private fun setComponentsValues(user: User) {
+        iv_user_profile_photo.load(user.photo)
+        tv_profile_name.text = user.name
+        tv_profile_email.text = user.email
+        tv_profile_about.text = user.about
     }
 }

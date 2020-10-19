@@ -82,7 +82,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-
     override fun onCleared() {
         job?.cancel()
         job?.let { if (it.isCancelled) job = null }

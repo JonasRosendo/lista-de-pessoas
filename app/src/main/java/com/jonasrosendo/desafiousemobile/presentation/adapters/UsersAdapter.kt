@@ -4,11 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.jonasrosendo.desafiousemobile.R
 import com.jonasrosendo.desafiousemobile.domain.entities.User
 import com.jonasrosendo.desafiousemobile.presentation.commons.load
+import com.jonasrosendo.desafiousemobile.presentation.fragments.PeopleFragment
+import com.jonasrosendo.desafiousemobile.presentation.fragments.PeopleFragmentDirections
 import de.hdodenhof.circleimageview.CircleImageView
 
 class UsersAdapter(private val users: ArrayList<User>) :
@@ -43,12 +47,18 @@ class UsersAdapter(private val users: ArrayList<User>) :
         private val userPhoto = view.findViewById<CircleImageView>(R.id.iv_user_image)
         private val tvName = view.findViewById<TextView>(R.id.tv_user_name)
         private val tvEmail = view.findViewById<TextView>(R.id.tv_user_email)
+        private val clItemLayout = view.findViewById<ConstraintLayout>(R.id.cl_item_users_layout)
 
         fun bind(user: User) {
             userPhoto.load(user.photo.toString().trim())
             tvName.text = user.name?.trim()
             tvEmail.text = user.email?.trim()
             showVerificationStatus(user)
+
+            clItemLayout.setOnClickListener {
+                val action = PeopleFragmentDirections.actionPeopleFragmentToUserProfileFragment(user.id)
+                view.findNavController().navigate(action)
+            }
         }
 
         private fun showVerificationStatus(user: User) {

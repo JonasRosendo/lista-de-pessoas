@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.jonasrosendo.desafiousemobile.domain.entities.User
 import com.jonasrosendo.desafiousemobile.domain.usecases.UseCases
+import com.jonasrosendo.desafiousemobile.presentation.commons.NetworkUtils
 import com.jonasrosendo.desafiousemobile.presentation.di.DaggerUseMobileComponent
 import kotlinx.coroutines.*
 import javax.inject.Inject
@@ -20,8 +21,7 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
 
     val user = MutableLiveData<User>()
     val hasError = MutableLiveData(false)
-    val isProfileLoding = MutableLiveData<Boolean>()
-    val isDeviceConnected = MutableLiveData(false)
+    val isProfileLoading = MutableLiveData(false)
 
     @Inject
     lateinit var useCases: UseCases
@@ -31,7 +31,7 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
     }
 
     fun getUserDetails(id: Long) {
-        isProfileLoding.value = true
+        isProfileLoading.postValue(true)
         getUserById(id)
     }
 
@@ -41,7 +41,6 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
             withContext(Dispatchers.Main) {
                 user.value = response
             }
-            isProfileLoding.postValue(false)
         }
     }
 

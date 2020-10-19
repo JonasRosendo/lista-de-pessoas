@@ -86,6 +86,7 @@ class PeopleFragment : Fragment(), TextWatcher {
         })
 
         viewModel.isDeviceConnected.observe(viewLifecycleOwner, {
+            usersRecycler.visibility = if (!it)  View.GONE else View.VISIBLE
             onConnectionChecked(it)
         })
     }

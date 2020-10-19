@@ -14,9 +14,9 @@
         <action
             android:id="@+id/action_peopleFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
-            app:popEnterAnim="@anim/from_right"
+            app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -26,7 +26,12 @@
         tools:layout="@layout/fragment_user_profile" >
         <action
             android:id="@+id/action_userProfileFragment_to_peopleFragment"
-            app:destination="@id/peopleFragment" />
+            app:destination="@id/peopleFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
+            app:popUpTo="@id/peopleFragment" />
         <argument
             android:name="userId"
             app:argType="long" />
