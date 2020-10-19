@@ -24,7 +24,7 @@ class UseMobileModule {
     fun provideUserRepository(dataSource: UserDataSource) = UserRepositoryImpl(dataSource)
 
     @Provides
-    fun provideUseCases(repository: UserRepository) = UseCases(
+    fun provideUseCases(repository: UserRepositoryImpl) = UseCases(
         GetUsersUseCase(repository),
         GetUserByIdUserCase(repository)
     )

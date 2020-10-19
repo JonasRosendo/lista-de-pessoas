@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Desafio Use Mobile</string>
     <string name="search">Search</string>
+    <string name="showing_user_photo">showing user photo</string>
+    <string name="no_connection">You are not connected to the internet. Please, reestablish the connection and retry.</string>
+    <string name="try_again">Try Again</string>
 </resources>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="search" translatable="false">Pesquisar</string>
+    <string name="search">Pesquisar</string>
+    <string name="showing_user_photo">Apresentando foto do usuário</string>
+    <string name="no_connection">Não há conexão com a Internet. Por favor, restabeleça sua conexão e tente novamente.</string>
+    <string name="try_again">Tentar Novamente</string>
 </resources>
