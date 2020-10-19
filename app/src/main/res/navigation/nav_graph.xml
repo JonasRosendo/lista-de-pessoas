@@ -3,11 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+    android:label="@string/list_people"
     app:startDestination="@id/peopleFragment">
 
     <fragment
         android:id="@+id/peopleFragment"
         android:name="com.jonasrosendo.desafiousemobile.presentation.fragments.PeopleFragment"
-        android:label="fragment_people"
-        tools:layout="@layout/fragment_people" />
+        android:label="@string/list_people"
+        tools:layout="@layout/fragment_people" >
+        <action
+            android:id="@+id/action_peopleFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.jonasrosendo.desafiousemobile.presentation.fragments.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_peopleFragment"
+            app:destination="@id/peopleFragment" />
+        <argument
+            android:name="userId"
+            app:argType="long" />
+    </fragment>
 </navigation>

@@ -1,6 +1,5 @@
 package com.jonasrosendo.desafiousemobile.domain.entities
 
-
 import com.google.gson.annotations.SerializedName
 
 data class User(
@@ -13,5 +12,7 @@ data class User(
     @SerializedName("photo")
     val photo: String?,
     @SerializedName("isVerified")
-    val isVerified: Boolean?
+    val isVerified: Boolean?,
+    @SerializedName("about")
+    val about: String? = ""
 )

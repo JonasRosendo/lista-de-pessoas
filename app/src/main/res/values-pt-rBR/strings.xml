@@ -4,4 +4,5 @@
     <string name="showing_user_photo">Apresentando foto do usuário</string>
     <string name="no_connection">Não há conexão com a Internet. Por favor, restabeleça sua conexão e tente novamente.</string>
     <string name="try_again">Tentar Novamente</string>
+    <string name="list_people">Lista de Pessoas</string>
 </resources>

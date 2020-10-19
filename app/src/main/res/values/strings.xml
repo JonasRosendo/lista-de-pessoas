@@ -4,4 +4,7 @@
     <string name="showing_user_photo">showing user photo</string>
     <string name="no_connection">You are not connected to the internet. Please, reestablish the connection and retry.</string>
     <string name="try_again">Try Again</string>
+    <string name="list_people">List of People</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

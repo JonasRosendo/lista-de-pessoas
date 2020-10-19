@@ -30,8 +30,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     val user = MutableLiveData<User?>()
     val isUsersLoading = MutableLiveData(false)
 
-    val isUserDetailsLoading = MutableLiveData<Boolean>()
-
     val hasError = MutableLiveData(false)
     val isDeviceConnected = MutableLiveData(false)
 
@@ -84,20 +82,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getUserDetails(id: Long) {
-        isUserDetailsLoading.value = true
-        getUserById(id)
-    }
-
-    private fun getUserById(id: Long) {
-        job = coroutineScope.launch(Dispatchers.IO + exceptionHandler) {
-            val response = useCases.getUserByIdUserCase.invoke(id)
-            withContext(Dispatchers.Main) {
-                user.value = response
-            }
-            isUserDetailsLoading.postValue(false)
-        }
-    }
 
     override fun onCleared() {
         job?.cancel()
